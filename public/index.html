@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGL Spammer Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NGL Spammer Web</h1>
+            <p class="subtitle">Kirim pesan spam ke akun NGL.link dengan mudah</p>
+            <div class="api-status">
+                <span id="apiStatus">Checking API...</span>
+            </div>
+        </header>
+        
+        <div class="card">
+            <h2>Konfigurasi Spam</h2>
+            <div class="form-group">
+                <label for="username">Username NGL</label>
+                <input type="text" id="username" placeholder="contoh: johndoe" value="johndoe">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" placeholder="Masukkan pesan yang akan dikirim">Hello from NGL Spammer!</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="count">Jumlah Pesan (maks: 50)</label>
+                <input type="number" id="count" min="1" max="50" value="10">
+            </div>
+            
+            <div class="form-group">
+                <label for="delay">Delay (detik)</label>
+                <input type="number" id="delay" min="0.5" max="5" step="0.5" value="1">
+            </div>
+            
+            <div class="controls">
+                <button id="startBtn" class="btn">
+                    <span class="btn-text">Mulai Spam</span>
+                    <div class="btn-loader" style="display: none;">
+                        <div class="spinner"></div>
+                        <span>Memproses...</span>
+                    </div>
+                </button>
+                <button id="resetBtn" class="btn">Reset</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Statistik</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="sentCount">0</div>
+                    <div class="stat-label">Terkirim</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="failedCount">0</div>
+                    <div class="stat-label">Gagal</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="successRate">0%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="progress">0%</div>
+                    <div class="stat-label">Progress</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Log Aktivitas</h2>
+            <div class="logs" id="logContainer">
+                <div class="log-entry log-info">Siap memulai spam...</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>NGL Spammer Web &copy; 2023 | Deployed on Vercel | Hanya untuk tujuan edukasi</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
